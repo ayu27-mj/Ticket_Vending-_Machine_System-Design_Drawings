@@ -1,0 +1,41 @@
+```mermaid
+classDiagram
+direction TB
+    class Main {
+	    +main()
+    }
+
+    class TicketVender {
+	    - items: List~Items~
+	    - cart: Cart
+	    + showItems() void
+	    + addItemToCart(int itemld) void
+	    + showCartItems() void
+	    + calcChange(int payment) void
+    }
+
+    class Cart {
+	    - cartItems: List~CartItem~
+	    + addIte(Item item) void
+	    +getCArtItems() List~CartItem~
+	    +getTotalPrice() int
+    }
+
+    class CartItem {
+	    - id : int
+	    - name : String
+	    - price : int
+	    - quantity : int
+	    
+    }
+
+    class Item{
+        - id : int
+        - name : String
+        - price : int
+    }
+
+    Main --> TicketVender
+    TicketVender o-- Cart
+    Cart o-- CartItem
+    TicketVender o-- Item
